@@ -26,8 +26,14 @@ class HomeWidget extends StatelessWidget {
       ),
       SliverList(
         delegate: SliverChildListDelegate([
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Popular',
+                style: Theme.of(context).textTheme.title,
+              )),
           Container(
-              margin: EdgeInsets.symmetric(vertical: 20.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0),
               height: 200.0,
               child:
                   ListView(scrollDirection: Axis.horizontal, children: <Widget>[
@@ -51,7 +57,27 @@ class HomeWidget extends StatelessWidget {
                   width: 200.0,
                   color: Colors.grey,
                 ),
-              ]))
+              ])),
+          Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                'Trending',
+                style: Theme.of(context).textTheme.title,
+              )),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            height: 200.0,
+          ),
+          Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Now Airing',
+                style: Theme.of(context).textTheme.title,
+              )),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            height: 200.0,
+          ),
         ]),
       )
     ]);

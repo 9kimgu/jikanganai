@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-class PlaceholderWidget extends StatelessWidget {
-  final Color color;
-
-  PlaceholderWidget(this.color);
-
+class SettingsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color,
+    return ListView(
+      children: const <Widget>[
+        ListTile(
+          leading: Icon(Icons.brightness_5),
+          title: Text('Screen'),
+        )
+    ]
     );
   }
 }

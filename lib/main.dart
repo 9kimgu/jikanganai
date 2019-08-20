@@ -51,8 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
   final List<Widget> _children =[
     PlaceholderWidget2(Colors.purple),
-    searchWidget(),
-    PlaceholderWidget(Colors.amber),
+    SearchWidget(),
+    SettingsWidget(),
   ];
 
   @override

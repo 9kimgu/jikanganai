@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
 import 'package:jikanganai/searchView.dart';
+import 'package:jikanganai/homeView.dart';
+import 'package:jikanganai/settingsView.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +48,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+  final List<Widget> _children =[
+    PlaceholderWidget2(Colors.purple),
+    searchWidget(),
+    PlaceholderWidget(Colors.amber),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -61,17 +69,18 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: listWidget(),
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
         items: [
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.search),
-            title: new Text('Search'),
-          ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.search),
+            title: new Text('Search'),
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.settings),
@@ -82,52 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget listWidget(){
-      return ListView.separated(
-        itemCount: 100,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.deepPurple,
-              child: Text('?'),
-            ),
-            title: Text('Row $index'),
-            subtitle: Text('This is a description.'),
-            trailing: Icon(Icons.arrow_right),
-            onTap: (){
-              _toDetailsScreen(context);
-            },
-          );
-        },
-        separatorBuilder: (context, index){
-          return Divider();
-      },
-      );
+  void onTabTapped(int index){
+    setState((){
+      _currentIndex = index;
+    });
+
   }
-  void _toDetailsScreen(BuildContext context){
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => DetailsScreen(),
-        )
-    );
-  }
+
 }
 
-class DetailsScreen extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-          title: Text('Title'),
-        leading: IconButton(icon: Icon(Icons.keyboard_arrow_left),
-        onPressed: (){
-          _backToList(context);
-        },),
-      ),
-    );
-  }
-  void _backToList(BuildContext context){
-    Navigator.pop(context);
-  }
-}

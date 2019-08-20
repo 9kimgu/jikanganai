@@ -1,29 +1,54 @@
 import 'package:flutter/material.dart';
 
-class _animeDescription extends StatelessWidget {
-  _animeDescription({
-    Key key,
-    this.title,
-    this.description,
-    this.imageurl,
-    this.score,
-    this.id
-}) : super(key: key);
-  final String title;
-  final String description;
-  final String imageurl;
-  final String score;
-  final String id;
-
+class searchWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Column (
-      children: <Widget>[
-        Expanded(
-          flex: 2,
-        )
-      ]
+    return ListView.separated(
+      itemCount: 100,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.deepPurple,
+            child: Text('?'),
+          ),
+          title: Text('Row $index'),
+          subtitle: Text('This is a description.'),
+          trailing: Icon(Icons.arrow_right),
+          onTap: () {
+            _toDetailsScreen(context);
+          },
+        );
+      },
+      separatorBuilder: (context, index) {
+        return Divider();
+      },
     );
   }
 }
+void _toDetailsScreen(BuildContext context){
+  Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DetailsScreen(),
+      )
+  );
+}
 
+
+class DetailsScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Title'),
+        leading: IconButton(icon: Icon(Icons.keyboard_arrow_left),
+          onPressed: (){
+            _backToList(context);
+          },),
+      ),
+    );
+  }
+  void _backToList(BuildContext context){
+    Navigator.pop(context);
+  }
+}

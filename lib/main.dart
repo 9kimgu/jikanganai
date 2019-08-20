@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:jikanganai/listViewObject.dart';
 
 void main() => runApp(MyApp());
@@ -63,8 +62,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: listWidget(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.search),
+            title: new Text('Search'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: new Icon(Icons.settings),
+            title: new Text('Settings'),
+          ),
+        ]
+      ),
     );
   }
+
   Widget listWidget(){
       return ListView.separated(
         itemCount: 100,

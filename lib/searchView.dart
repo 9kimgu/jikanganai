@@ -5,7 +5,31 @@ class SearchWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return CustomScrollView(slivers: <Widget>[
+      SliverAppBar(
+        floating: true,
+        pinned: false,
+        snap: true,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: (){
+            //menu icon for search
+          }
+        ),
+        flexibleSpace: const FlexibleSpaceBar(
+          title: Text('Search'),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              //expand search textfield here
+            }
+          )
+        ]
+      )
+    ],);
+    /*return new Scaffold(
       body: Container(
         child: Column(
           children: <Widget>[
@@ -47,7 +71,7 @@ class SearchWidget extends StatelessWidget{
           ]
         )
       )
-    );
+    );*/
   }
 }
 

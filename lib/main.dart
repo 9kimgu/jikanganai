@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
-import 'package:jikanganai/listViewObject.dart';
+import 'package:jikanganai/searchView.dart';
 
 void main() => runApp(MyApp());
 

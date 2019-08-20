@@ -18,6 +18,8 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: <Widget>[
       const SliverAppBar(
+        leading: Icon(Icons.live_tv
+        ),
         pinned: false,
         expandedHeight: 40.0,
         flexibleSpace: FlexibleSpaceBar(

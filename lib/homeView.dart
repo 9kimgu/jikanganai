@@ -18,8 +18,7 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: <Widget>[
       const SliverAppBar(
-        leading: Icon(Icons.live_tv
-        ),
+        leading: Icon(Icons.live_tv),
         pinned: false,
         expandedHeight: 40.0,
         flexibleSpace: FlexibleSpaceBar(
@@ -67,9 +66,31 @@ class HomeWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.title,
               )),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10.0),
-            height: 200.0,
-          ),
+              margin: EdgeInsets.symmetric(vertical: 10.0),
+              height: 200.0,
+              child:
+                  ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+                Container(
+                  width: 200.0,
+                  color: Colors.orange,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.black,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.lime,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.lightBlue,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.grey,
+                ),
+              ])),
           Padding(
               padding: EdgeInsets.all(10.0),
               child: Text(
@@ -77,9 +98,31 @@ class HomeWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.title,
               )),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10.0),
-            height: 200.0,
-          ),
+              margin: EdgeInsets.symmetric(vertical: 10.0),
+              height: 200.0,
+              child:
+                  ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+                Container(
+                  width: 200.0,
+                  color: Colors.pink,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.green,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.deepOrange,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.yellow,
+                ),
+                Container(
+                  width: 200.0,
+                  color: Colors.white,
+                ),
+              ])),
         ]),
       )
     ]);

@@ -102,6 +102,7 @@ class _SearchListState extends State<SearchList>
                 this.actionIcon = new Icon(Icons.close, color: Colors.white,);
                 this.appBarTitle = new TextField(
                   controller: _searchQuery,
+                  autofocus: true,
                   style: new TextStyle(
                     color: Colors.white,
 
@@ -131,9 +132,9 @@ class _SearchListState extends State<SearchList>
 
   void _handleSearchEnd() {
     setState(() {
-      this.actionIcon = new Icon(Icons.search, color: Colors.white,);
+      this.actionIcon = new Icon(Icons.search);
       this.appBarTitle =
-      new Text("Search Sample", style: new TextStyle(color: Colors.white),);
+      new Text("Anime Search");
       _IsSearching = false;
       _searchQuery.clear();
     });

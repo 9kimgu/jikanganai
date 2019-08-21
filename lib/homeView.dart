@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jikan_dart/jikan_dart.dart';
 
 class PlaceholderWidget2 extends StatelessWidget {
   final Color color;

@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 CurrentSeason currentSeasonFromJson(String str) => CurrentSeason.fromJson(json.decode(str));
 
 String currentSeasonToJson(CurrentSeason data) => json.encode(data.toJson());
@@ -198,4 +200,5 @@ class EnumValues<T> {
     return reverseMap;
   }
 }
+
 

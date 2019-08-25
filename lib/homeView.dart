@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
+import 'package:jikanganai/currentA_model.dart';
+import 'package:jikanganai/services.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PlaceholderWidget2 extends StatelessWidget {
   final Color color;
@@ -39,6 +42,23 @@ class HomeWidget extends StatelessWidget {
               height: 200.0,
               child:
                   ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+                    FutureBuilder<CurrentSeason>(
+                      future: getCurrentAnime(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError){
+                          return Text('There was an error');
+                        }
+                        else if (snapshot.hasData){
+                          return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}'
+                          );
+                      }
+                        else{
+                          return Text('No value yet!');
+                        }
+                      }
+                    ),
                 Container(
                   width: 200.0,
                   color: Colors.blue,

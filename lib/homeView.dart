@@ -45,18 +45,7 @@ class HomeWidget extends StatelessWidget {
                     FutureBuilder<CurrentSeason>(
                       future: getCurrentAnime(),
                       builder: (context, snapshot) {
-                        if (snapshot.hasError){
-                          return Text('There was an error');
-                        }
-                        else if (snapshot.hasData){
-                          return FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: '${snapshot.data.anime[0].imageUrl}'
-                          );
-                      }
-                        else{
-                          return Text('No value yet!');
-                        }
+                        return Text('${snapshot.data.seasonName}');
                       }
                     ),
                 Container(

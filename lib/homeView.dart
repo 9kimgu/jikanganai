@@ -3,6 +3,7 @@ import 'package:jikan_dart/jikan_dart.dart';
 import 'package:jikanganai/currentA_model.dart';
 import 'package:jikanganai/services.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'dart:io';
 
 class PlaceholderWidget2 extends StatelessWidget {
   final Color color;
@@ -42,32 +43,166 @@ class HomeWidget extends StatelessWidget {
               height: 200.0,
               child:
                   ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-                    FutureBuilder<CurrentSeason>(
-                      future: getCurrentAnime(),
-                      builder: (context, snapshot) {
-                        return Text('${snapshot.data.seasonName}');
-                      }
-                    ),
                 Container(
-                  width: 200.0,
-                  color: Colors.blue,
-                ),
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
                 Container(
-                  width: 200.0,
-                  color: Colors.teal,
-                ),
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[1].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
                 Container(
-                  width: 200.0,
-                  color: Colors.orange,
-                ),
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
                 Container(
-                  width: 200.0,
-                  color: Colors.amber,
-                ),
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
                 Container(
-                  width: 200.0,
-                  color: Colors.grey,
-                ),
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
+                Container(
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
+                Container(
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
+                Container(
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
+                Container(
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
+                Container(
+                    child: FutureBuilder<CurrentSeason>(
+                        future: getCurrentAnime(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.done) {
+                            return FadeInImage.memoryNetwork(
+                              placeholder: kTransparentImage,
+                              image: '${snapshot.data.anime[0].imageUrl}',
+                            );
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        })),
               ])),
           Padding(
               padding: EdgeInsets.all(8.0),

@@ -1,6 +1,6 @@
 // To parse this JSON data, do
 //
-//     final currentSeason = currentSeasonFromJson(jsonString);
+//  final currentSeason = currentSeasonFromJson(jsonString);
 
 import 'dart:convert';
 

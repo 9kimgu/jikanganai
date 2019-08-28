@@ -5,8 +5,7 @@ import 'dart:io';
 
 String url = 'https://api.jikan.moe/v3';
 
-Future<CurrentSeason> getCurrentAnime() async{
+Future<CurrentSeason> getCurrentAnime() async {
   final response = await http.get('$url/season/2019/summer');
-  print(response.body);
   return currentSeasonFromJson(response.body);
 }

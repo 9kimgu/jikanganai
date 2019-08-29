@@ -35,63 +35,110 @@ class HomeWidget extends StatelessWidget {
           Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Popular',
+                'Popular this Season',
                 style: Theme.of(context).textTheme.title,
               )),
           Container(
               margin: EdgeInsets.symmetric(vertical: 10.0),
               height: 200.0,
               child:
-                  ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-                Container(
-                    child: FutureBuilder<CurrentSeason>(
+                    FutureBuilder<CurrentSeason>(
                         future: getCurrentAnime(),
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.done) {
-                            return FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: '${snapshot.data.anime[0].imageUrl}',
-                            );
+                              return ListView(scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.all(5.0),
+                              children: <Widget>[
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[0].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[1].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[2].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[3].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[4].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[5].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[6].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[7].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[8].imageUrl}'
+                                )
+                              ),
+                              Container(
+                                child: FadeInImage.memoryNetwork(
+                                  placeholder: kTransparentImage,
+                                  image: '${snapshot.data.anime[9].imageUrl}'
+                                )
+                              ),
+                            ]);
+                            // FadeInImage.memoryNetwork(
+                            //   placeholder: kTransparentImage,
+                            //   image: '${snapshot.data.anime[0].imageUrl}',
+                            //);
                           } else {
                             return Center(
                               child: CircularProgressIndicator(),
                             );
                           }
-                        })),
-                Container(
-                    child: FutureBuilder<CurrentSeason>(
-                        future: getCurrentAnime(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: '${snapshot.data.anime[1].imageUrl}',
-                            );
-                          } else {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        })),
-                Container(
-                    child: FutureBuilder<CurrentSeason>(
-                        future: getCurrentAnime(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.done) {
-                            return FadeInImage.memoryNetwork(
-                              placeholder: kTransparentImage,
-                              image: '${snapshot.data.anime[2].imageUrl}',
-                            );
-                          } else {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        })),
-              ])),
+                        }),
+                  //ListView(scrollDirection: Axis.horizontal, children: <Widget>[
+                //Container(
+                    // child: FutureBuilder<CurrentSeason>(
+                    //     future: getCurrentAnime(),
+                    //     builder: (context, snapshot) {
+                    //       if (snapshot.connectionState ==
+                    //           ConnectionState.done) {
+                    //         return FadeInImage.memoryNetwork(
+                    //           placeholder: kTransparentImage,
+                    //           image: '${snapshot.data.anime[0].imageUrl}',
+                    //         );
+                    //       } else {
+                    //         return Center(
+                    //           child: CircularProgressIndicator(),
+                    //         );
+                    //       }
+                    //     })),
+              ),
           Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(

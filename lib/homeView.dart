@@ -65,10 +65,6 @@ class HomeWidget extends StatelessWidget{
                                 )
                               ),
                             ));
-                            // FadeInImage.memoryNetwork(
-                            //   placeholder: kTransparentImage,
-                            //   image: '${snapshot.data.anime[0].imageUrl}',
-                            //);
                           } else {
                             return Center(
                               child: CircularProgressIndicator(),

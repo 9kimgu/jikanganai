@@ -18,7 +18,14 @@ class PlaceholderWidget2 extends StatelessWidget {
   }
 }
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatelessWidget{
+  Future<CurrentSeason> _loadAnime;
+  // @override
+  // void initState(){
+  //   _loadAnime = getCurrentAnime();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: <Widget>[
@@ -47,70 +54,17 @@ class HomeWidget extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.done) {
-                              return ListView(scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.all(5.0),
-                              children: <Widget>[
-                              Container(
+                              return ListView.builder(scrollDirection: Axis.horizontal,
+                              itemCount: 10,
+                              itemBuilder:(context, index) => Padding(
+                                padding: EdgeInsets.all(8.0), 
+                                child: Container(
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[0].imageUrl}'
+                                  image: '${snapshot.data.anime[index].imageUrl}'
                                 )
                               ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[1].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[2].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[3].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[4].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[5].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[6].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[7].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[8].imageUrl}'
-                                )
-                              ),
-                              Container(
-                                child: FadeInImage.memoryNetwork(
-                                  placeholder: kTransparentImage,
-                                  image: '${snapshot.data.anime[9].imageUrl}'
-                                )
-                              ),
-                            ]);
+                            ));
                             // FadeInImage.memoryNetwork(
                             //   placeholder: kTransparentImage,
                             //   image: '${snapshot.data.anime[0].imageUrl}',

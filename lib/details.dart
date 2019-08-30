@@ -3,8 +3,6 @@ import 'package:jikan_dart/jikan_dart.dart';
 import 'package:jikanganai/details_model.dart';
 import 'package:jikanganai/services.dart';
 
-
-
 void toDetailsScreen(BuildContext context, String id) {
   Navigator.push(
       context,
@@ -16,24 +14,30 @@ void toDetailsScreen(BuildContext context, String id) {
 class DetailsScreen extends StatelessWidget {
   final animeInfo;
 
-  DetailsScreen({Key key, @required this.animeInfo}) :super(key: key);
+  DetailsScreen({Key key, @required this.animeInfo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Details>(
-        future: getDetails(animeInfo.id),
+        future: getDetails(animeInfo),
         builder: (context, snapshot) {
-          Scaffold(
-            appBar: AppBar(
-              title: Text('${snapshot.data.title}'),
-              leading: IconButton(
-                icon: Icon(Icons.keyboard_arrow_left),
-                onPressed: () {
-                  _backToList(context);
-                },
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text('${snapshot.data.title}'),
+                leading: IconButton(
+                  icon: Icon(Icons.keyboard_arrow_left),
+                  onPressed: () {
+                    _backToList(context);
+                  },
+                ),
               ),
-            ),
-          );
+            );
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         });
   }
 

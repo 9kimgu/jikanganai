@@ -21,11 +21,6 @@ class PlaceholderWidget2 extends StatelessWidget {
 
 class HomeWidget extends StatelessWidget {
   Future<CurrentSeason> _loadAnime;
-  // @override
-  // void initState(){
-  //   _loadAnime = getCurrentAnime();
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,39 +52,25 @@ class HomeWidget extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 10,
                         itemBuilder: (context, index) => Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    toDetailsScreen(context, '${snapshot.data.anime[index].malId}');
-                                  },
+                            padding: EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                toDetailsScreen(context,
+                                    '${snapshot.data.anime[index].malId}');
+                              },
+                              child: Hero(
+                                  tag: 'hero_${snapshot.data.anime[index].malId}',
                                   child: FadeInImage.memoryNetwork(
                                       placeholder: kTransparentImage,
                                       image:
                                           '${snapshot.data.anime[index].imageUrl}')),
-                            ));
+                            )));
                   } else {
                     return Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                 }),
-            //ListView(scrollDirection: Axis.horizontal, children: <Widget>[
-            //Container(
-            // child: FutureBuilder<CurrentSeason>(
-            //     future: getCurrentAnime(),
-            //     builder: (context, snapshot) {
-            //       if (snapshot.connectionState ==
-            //           ConnectionState.done) {
-            //         return FadeInImage.memoryNetwork(
-            //           placeholder: kTransparentImage,
-            //           image: '${snapshot.data.anime[0].imageUrl}',
-            //         );
-            //       } else {
-            //         return Center(
-            //           child: CircularProgressIndicator(),
-            //         );
-            //       }
-            //     })),
           ),
           Padding(
               padding: EdgeInsets.all(8.0),

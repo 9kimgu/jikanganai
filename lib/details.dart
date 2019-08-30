@@ -1,30 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:jikan_dart/jikan_dart.dart';
+import 'package:jikanganai/details_model.dart';
+import 'package:jikanganai/services.dart';
 
 
-void toDetailsScreen(BuildContext context){
+
+void toDetailsScreen(BuildContext context, String id) {
   Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DetailsScreen(),
-      )
-  );
+        builder: (context) => DetailsScreen(animeInfo: id),
+      ));
 }
 
+class DetailsScreen extends StatelessWidget {
+  final animeInfo;
 
-class DetailsScreen extends StatelessWidget{
+  DetailsScreen({Key key, @required this.animeInfo}) :super(key: key);
+
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Title'),
-        leading: IconButton(icon: Icon(Icons.keyboard_arrow_left),
-          onPressed: (){
-            _backToList(context);
-          },),
-      ),
-    );
+  Widget build(BuildContext context) {
+    return FutureBuilder<Details>(
+        future: getDetails(animeInfo.id),
+        builder: (context, snapshot) {
+          Scaffold(
+            appBar: AppBar(
+              title: Text('${snapshot.data.title}'),
+              leading: IconButton(
+                icon: Icon(Icons.keyboard_arrow_left),
+                onPressed: () {
+                  _backToList(context);
+                },
+              ),
+            ),
+          );
+        });
   }
-  void _backToList(BuildContext context){
+
+  void _backToList(BuildContext context) {
     Navigator.pop(context);
   }
 }

@@ -60,7 +60,7 @@ class HomeWidget extends StatelessWidget {
                               padding: EdgeInsets.all(8.0),
                               child: GestureDetector(
                                   onTap: () {
-                                    toDetailsScreen(context);
+                                    toDetailsScreen(context, '${snapshot.data.anime[index].malId}');
                                   },
                                   child: FadeInImage.memoryNetwork(
                                       placeholder: kTransparentImage,

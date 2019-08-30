@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
-import 'package:jikanganai/currentA_model.dart';
+import 'package:jikanganai/models/currentA_model.dart';
 import 'package:jikanganai/services.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'dart:io';

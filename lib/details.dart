@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jikan_dart/jikan_dart.dart';
-import 'package:jikanganai/details_model.dart';
+import 'package:jikanganai/models/details_model.dart';
 import 'package:jikanganai/services.dart';
 
 void toDetailsScreen(BuildContext context, String id) {

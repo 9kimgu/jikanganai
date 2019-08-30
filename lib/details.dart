@@ -33,12 +33,20 @@ class DetailsScreen extends StatelessWidget {
                   },
                 ),
               ),
+              floatingActionButton: FloatingActionButton(
+                onPressed: (){
+                  //add pressed code here
+                },
+                child: Icon(Icons.thumb_up),),
               body: Column(children: <Widget>[
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        child: Image.network('${snapshot.data.imageUrl}'),
+                        child: FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: '${snapshot.data.imageUrl}',
+                        )
                       )
                     ]),
                 Row(

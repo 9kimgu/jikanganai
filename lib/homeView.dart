@@ -52,19 +52,19 @@ class HomeWidget extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 10,
                         itemBuilder: (context, index) => Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                toDetailsScreen(context,
-                                    '${snapshot.data.anime[index].malId}');
-                              },
-                              child: Hero(
-                                  tag: 'hero_${snapshot.data.anime[index].malId}',
-                                  child: FadeInImage.memoryNetwork(
+                              padding: EdgeInsets.all(8.0),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    toDetailsScreen(context,
+                                        '${snapshot.data.anime[index].malId}');
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                    child: FadeInImage.memoryNetwork(
                                       placeholder: kTransparentImage,
                                       image:
-                                          '${snapshot.data.anime[index].imageUrl}')),
-                            )));
+                                          '${snapshot.data.anime[index].imageUrl}'))),
+                            ));
                   } else {
                     return Center(
                       child: CircularProgressIndicator(),

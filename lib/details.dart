@@ -24,63 +24,66 @@ class DetailsScreen extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
-              appBar: AppBar(
-                title: Text('${snapshot.data.title}'),
-                leading: IconButton(
-                  icon: Icon(Icons.keyboard_arrow_left),
+                appBar: AppBar(
+                  title: Text('${snapshot.data.title}'),
+                  leading: IconButton(
+                    icon: Icon(Icons.keyboard_arrow_left),
+                    onPressed: () {
+                      _backToList(context);
+                    },
+                  ),
+                ),
+                floatingActionButton: FloatingActionButton(
                   onPressed: () {
-                    _backToList(context);
+                    //add pressed code here
                   },
+                  child: Icon(Icons.thumb_up),
                 ),
-              ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: (){
-                  //add pressed code here
-                },
-                child: Icon(Icons.thumb_up),),
-              body: Column(children: <Widget>[
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: FadeInImage.memoryNetwork(
-                          placeholder: kTransparentImage,
-                          image: '${snapshot.data.imageUrl}',
-                        )
-                      )
-                    ]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                          child: Icon(Icons.star, color: Colors.orangeAccent)),
-                      Text('${snapshot.data.score}')
-                    ]),
-                Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Synopsis',
-                      style: Theme.of(context).textTheme.title,
-                    )),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text('${snapshot.data.synopsis}'),
-                ),
-                Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Genre',
-                      style: Theme.of(context).textTheme.title,
-                    )),
-                Row(
+                body: Column(
                   children: <Widget>[
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              child: FadeInImage.memoryNetwork(
+                            placeholder: kTransparentImage,
+                            image: '${snapshot.data.imageUrl}',
+                          ))
+                        ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              child:
+                                  Icon(Icons.star, color: Colors.orangeAccent)),
+                          Text('${snapshot.data.score}')
+                        ]),
+                    Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Synopsis',
+                          style: Theme.of(context).textTheme.title,
+                        )),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Chip(label: Text('${snapshot.data.genres[0].name}')))
+                      child: Text('${snapshot.data.synopsis}'),
+                    ),
+                    Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          'Genre',
+                          style: Theme.of(context).textTheme.title,
+                        )),
+                    // ListView.builder(
+                    //     scrollDirection: Axis.horizontal,
+                    //     itemCount: 1,
+                    //     itemBuilder: (context, index) => Padding(
+                    //         padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    //         child: Chip(
+                    //             label: Text(
+                    //                 '${snapshot.data.genres[index].name}')))),
                   ],
-                )
-              ]),
-            );
+                ));
           } else {
             return Center(
               child: CircularProgressIndicator(),

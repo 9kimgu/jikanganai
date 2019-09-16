@@ -47,12 +47,13 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMixin<MyHomePage>{
+class _MyHomePageState extends State<MyHomePage>
+    with AutomaticKeepAliveClientMixin<MyHomePage> {
   @override
   bool get wantKeepAlive => true;
 
   int _currentIndex = 0;
-  final List<Widget> _children =[
+  final List<Widget> _children = [
     HomeWidget(),
     SearchList(),
     SettingsWidget(),
@@ -68,34 +69,58 @@ class _MyHomePageState extends State<MyHomePage> with AutomaticKeepAliveClientMi
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      drawer: Drawer(
+          child: ListView(children: <Widget>[
+        UserAccountsDrawerHeader(
+          accountName: Text('Shirou Emiya'),
+          accountEmail: Text(''),
+          currentAccountPicture: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/shirou.png'),
+          ),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/seiba.jpg'),
+              fit: BoxFit.cover,
+            )
+          ),
+        ),
+        ListTile(
+          title: Text('Favorites'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        ListTile(
+          title: Text('Waifus'),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+      ])),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.search),
-            title: new Text('Search'),
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.settings),
-            title: new Text('Settings'),
-          ),
-        ]
-      ),
+          onTap: onTabTapped,
+          currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.home),
+              title: new Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.search),
+              title: new Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.settings),
+              title: new Text('Settings'),
+            ),
+          ]),
     );
   }
 
-  void onTabTapped(int index){
-    setState((){
+  void onTabTapped(int index) {
+    setState(() {
       _currentIndex = index;
     });
-
   }
-
 }
-

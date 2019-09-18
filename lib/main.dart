@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jikan_dart/jikan_dart.dart';
 import 'package:jikanganai/searchView.dart';
 import 'package:jikanganai/homeView.dart';
 import 'package:jikanganai/settingsView.dart';
@@ -85,12 +84,14 @@ class _MyHomePageState extends State<MyHomePage>
           ),
         ),
         ListTile(
+          leading: Icon(Icons.thumb_up),
           title: Text('Favorites'),
           onTap: () {
             Navigator.pop(context);
           },
         ),
         ListTile(
+          leading: Icon(Icons.favorite),
           title: Text('Waifus'),
           onTap: () {
             Navigator.pop(context);

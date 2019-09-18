@@ -5,21 +5,14 @@ import 'package:jikanganai/services.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'dart:io';
 import 'package:jikanganai/details.dart';
+import 'package:async/async.dart';
 
-class PlaceholderWidget2 extends StatelessWidget {
-  final Color color;
-
-  PlaceholderWidget2(this.color);
-
+class HomeWidget extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
-    );
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
-class HomeWidget extends StatelessWidget {
+class _HomePageState extends State<HomeWidget> {
   Future<CurrentSeason> _loadAnime;
 
   @override
@@ -46,7 +39,7 @@ class HomeWidget extends StatelessWidget {
             height: 200.0,
             child: FutureBuilder<CurrentSeason>(
                 future: getCurrentAnime(),
-                builder: (context, snapshot) {
+                builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return ListView.builder(
                         scrollDirection: Axis.horizontal,
